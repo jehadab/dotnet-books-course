@@ -15,6 +15,16 @@ namespace my_books.Data
 
                 var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
 
+                if (!context.Publishers.Any())
+                {
+                    context.Publishers.Add(
+                        new Publisher()
+                        {
+                            Name = "marly manson",
+                        });
+                    context.SaveChanges();
+                }
+
                 if (!context.Books.Any())
                 {
                     context.Books.AddRange(new Book()
@@ -26,7 +36,9 @@ namespace my_books.Data
                         Genre = "Bio",
                         Auther = "zolo",
                         CoverUrl = "https....",
-                        DateAdded = DateTime.Now
+                        DateAdded = DateTime.Now,
+                        PublisherId = 1
+                      
 
                     },
                     new Book()
@@ -38,7 +50,9 @@ namespace my_books.Data
                         Genre = "historical",
                         Auther = "domo",
                         CoverUrl = "https....",
-                        DateAdded = DateTime.Now
+                        DateAdded = DateTime.Now,
+                        PublisherId = 1
+                        
 
                     }
                     );

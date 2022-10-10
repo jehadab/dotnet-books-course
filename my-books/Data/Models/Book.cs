@@ -19,5 +19,9 @@ namespace my_books.Data.Models
         public string Genre { get; set; }
         public string Auther { get; set; }
         public DateTime DateAdded { get; set; }
+
+        public int PublisherId { get; set; }
+
+        public Publisher Publisher { get; set; }
     }
 }

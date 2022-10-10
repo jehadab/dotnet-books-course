@@ -33,16 +33,15 @@ namespace my_books.Data.Services
             _context.SaveChanges();
         }
 
-
         public List<Book> GetAllBooks() => _context.Books.ToList();
-            
+
         public Book GetBookById(int bookId) => _context.Books.FirstOrDefault
               (book => book.Id == bookId);
-        
-        public Book UpdateBookById(int bookId , BookVM book)
+
+        public Book UpdateBookById(int bookId, BookVM book)
         {
             var _book = _context.Books.FirstOrDefault(book => book.Id == bookId);
-            if( _book != null)
+            if (_book != null)
             {
 
                 _book.Title = book.Title;
