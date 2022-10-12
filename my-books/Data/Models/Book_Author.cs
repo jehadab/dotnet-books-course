@@ -4,11 +4,11 @@
     {
         public int Id { get; set; }
 
-        public int bookId { get; set; }
+        public int BookId { get; set; }
 
         public Book Book { get; set; }
 
-        public int AuthorId { get; set; } = 0;
+        public int AuthorId { get; set; }
 
         public Author Author { get; set; }
 

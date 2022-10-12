@@ -41,9 +41,6 @@ namespace my_books.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Auther")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("CoverUrl")
                         .HasColumnType("nvarchar(max)");
 
@@ -81,19 +78,23 @@ namespace my_books.Migrations
             modelBuilder.Entity("my_books.Data.Models.Book_Author", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("bookId")
+                    b.Property<int>("BookId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("book_Authors");
+                    b.HasIndex("BookId");
+
+                    b.ToTable("Book_Authors");
                 });
 
             modelBuilder.Entity("my_books.Data.Models.Publisher", b =>
@@ -125,14 +126,14 @@ namespace my_books.Migrations
             modelBuilder.Entity("my_books.Data.Models.Book_Author", b =>
                 {
                     b.HasOne("my_books.Data.Models.Author", "Author")
-                        .WithMany("book_Authors")
+                        .WithMany("Book_Authors")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("my_books.Data.Models.Book", "Book")
-                        .WithMany("book_Authors")
-                        .HasForeignKey("Id")
+                        .WithMany("Book_Authors")
+                        .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -143,12 +144,12 @@ namespace my_books.Migrations
 
             modelBuilder.Entity("my_books.Data.Models.Author", b =>
                 {
-                    b.Navigation("book_Authors");
+                    b.Navigation("Book_Authors");
                 });
 
             modelBuilder.Entity("my_books.Data.Models.Book", b =>
                 {
-                    b.Navigation("book_Authors");
+                    b.Navigation("Book_Authors");
                 });
 
             modelBuilder.Entity("my_books.Data.Models.Publisher", b =>

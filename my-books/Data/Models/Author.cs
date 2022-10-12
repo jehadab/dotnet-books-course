@@ -7,7 +7,7 @@ namespace my_books.Data.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public List<Book_Author> book_Authors { get; set; }
+        public List<Book_Author> Book_Authors { get; set; }
     
 
 

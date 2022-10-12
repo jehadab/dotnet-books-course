@@ -34,7 +34,6 @@ namespace my_books.Data
                         IsRead = true,
                         DateRead = DateTime.Now.AddDays(-10),
                         Genre = "Bio",
-                        Auther = "zolo",
                         CoverUrl = "https....",
                         DateAdded = DateTime.Now,
                         PublisherId = 1
@@ -48,7 +47,6 @@ namespace my_books.Data
                         IsRead = true,
                         DateRead = DateTime.Now.AddDays(-20),
                         Genre = "historical",
-                        Auther = "domo",
                         CoverUrl = "https....",
                         DateAdded = DateTime.Now,
                         PublisherId = 1

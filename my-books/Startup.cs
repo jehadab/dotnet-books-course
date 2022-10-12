@@ -39,7 +39,10 @@ namespace my_books
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionStrign));
 
             //configre Services 
-            services.AddTransient<BooksService>(); 
+            services.AddTransient<BooksService>();
+            services.AddTransient<AuthorsService>();
+            services.AddTransient<PublisherService>();
+            
 
 
             services.AddSwaggerGen(c =>

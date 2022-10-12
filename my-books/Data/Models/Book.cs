@@ -18,14 +18,13 @@ namespace my_books.Data.Models
         public string CoverUrl { get; set; }
 
         public string Genre { get; set; }
-        public string Auther { get; set; }
         public DateTime DateAdded { get; set; }
 
         public int PublisherId { get; set; }
 
         public Publisher Publisher { get; set; }
 
-        public List<Book_Author> book_Authors { get; set; }
+        public List<Book_Author> Book_Authors { get; set; }
 
     }
 }
